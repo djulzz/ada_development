@@ -85,7 +85,18 @@ typedef unsigned char   bool_t;
     #define true !false
 #endif
 
-
+/*
+ * I'm bound to be using the _cplusplus stuff because I want my code to be
+ * compiled in C, and yet be able to use it in a C++ environment.
+ */
+#ifdef __cplusplus
+extern "C"
+{
+#endif /* __cplusplus defined */
+    
+    
+    
+    
 /**
  * @brief the "im_axes_t" is just a typedef to represent a triplet of coordinates,
  * like accelerations.
@@ -116,7 +127,10 @@ typedef struct _ada_capture_t
 
 /******************************************************************************/
 /******************************************************************************/
-extern uint8 ada_state_memory[ ADA_STATE_MEMORY_SIZE ];
+#ifndef FILTER_TEST_ENVIRONMENT
+extern
+#endif
+uint8 ada_state_memory[ ADA_STATE_MEMORY_SIZE ];
 
 /******************************************************************************/
 /******************************************************************************/
@@ -127,14 +141,7 @@ void CustomPrintf( char *fmt, ... );
 uint32 ada_sqrt( uint32 accSquared );
 
 
-/*
- * I'm bound to be using the _cplusplus stuff because I want my code to be
- * compiled in C, and yet be able to use it in a C++ environment.
- */
-#ifdef __cplusplus
-extern "C"
-{
-#endif /* __cplusplus defined */
+
     
 /**
  * @fn call_p1Reset

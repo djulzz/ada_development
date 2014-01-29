@@ -86,7 +86,11 @@
 #define g_WAIT_FOR_FULL_BUFFER                              g_ON
 
 
-
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+    
 /******************************************************************************/
 /******************************************************************************/
 typedef struct _adaP0_t
@@ -416,3 +420,6 @@ void RecordIndices(
     return;
 }
 
+#ifdef __cplusplus
+}
+#endif /* __cplusplus defined */

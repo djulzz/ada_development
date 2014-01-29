@@ -27,7 +27,11 @@ extern "C"
 /******************************************************************************/
 /******************************************************************************/
 bool adaExecP0( ada_sample_t* pSample, ada_capture_t* pCapture );
-
+void RecordIndices(
+                   int32* absolute_sample_index,
+                   int16* relO,
+                   int16* relP,
+                   uint16* idx1, uint16* idx2 );
 void adaInitP0( void );
     
     
